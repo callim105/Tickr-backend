@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ticker: MyString
+  sector: MyString
+  portfolio_id: one
+
+two:
+  name: MyString
+  ticker: MyString
+  sector: MyString
+  portfolio_id: two
