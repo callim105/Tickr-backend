@@ -1,4 +1,4 @@
 class PortfolioSerializer < ActiveModel::Serializer
   belongs_to :user
-  attributes :name, :description
+  attributes :id, :name, :description
 end
