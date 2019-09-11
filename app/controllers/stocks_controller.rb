@@ -4,7 +4,7 @@ class StocksController < ApplicationController
         render json: { user: UserSerializer.new(current_user)}
     end
 
-    def delete
+    def destroy
         @stock = Stock.find_by(id: params[:id])
         @stock.delete
         render json: { user: UserSerializer.new(current_user)}
