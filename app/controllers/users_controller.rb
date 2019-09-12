@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+        Portfolio.create(user_id:@user.id, name:"#{@user.username}'s First Portfolio")
         if @user.valid?
             @token = encode_token({user_id: @user.id})
             render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
