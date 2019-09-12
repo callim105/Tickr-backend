@@ -7,13 +7,13 @@ class PortfoliosController < ApplicationController
     def update
         @portfolio = Portfolio.find_by(id: params[:id])
         @portfolio.update(portfolio_params)
-        render json: { user: UserSerializer.new(current_user)
+        render json: { user: UserSerializer.new(current_user)}
     end
 
     def delete
         @portfolio = Portfolio.find_by(id: params[:id])
         @portfolio.delete 
-        render json: { user: UserSerializer.new(current_user)
+        render json: { user: UserSerializer.new(current_user)}
     end
 
     private
