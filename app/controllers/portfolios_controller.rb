@@ -10,9 +10,13 @@ class PortfoliosController < ApplicationController
         render json: { user: UserSerializer.new(current_user)}
     end
 
-    def delete
+    def destroy
         @portfolio = Portfolio.find_by(id: params[:id])
-        @portfolio.delete 
+        @stocks = Stock.where(portfolio_id: @portfolio.id)
+        @stocks.each do |stock|
+            stock.destroy
+        end
+        @portfolio.destroy
         render json: { user: UserSerializer.new(current_user)}
     end
 
