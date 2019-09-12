@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
     def create
         @stock = Stock.create(stock_params)
-        render json: { user: UserSerializer.new(current_user)}
+        render json: { stock: StockSerializer.new(@stock)}
     end
 
     def destroy

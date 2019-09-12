@@ -18,6 +18,19 @@ class UsersController < ApplicationController
         end 
     end
 
+    def destroy
+        @user = User.find_by(id: params[:id])
+        @portfolios = Portfolio.where(user_id: @user.id)
+            @portfolios.each do |portfolio|
+                @stocks = Stock.where(portfolio_id: portfolio.id)
+                @stocks.each do |stock|
+                    stock.destroy
+                end
+                portfolio.destroy
+            end
+        @user.destroy
+    end
+
     private
 
     def user_params
